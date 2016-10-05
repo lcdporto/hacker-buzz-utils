@@ -1,0 +1,8 @@
+hacker-buzz-utils:
+    image: lcdporto/hacker-buzz-utils:latest
+    container_name: hacker-buzz-utils
+    hostname: hackerbuzz
+    environment:
+        - TERM=xterm
+    volumes:
+        - $PWD/app/:/app/
