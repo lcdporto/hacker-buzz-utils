@@ -28,7 +28,7 @@ def download_image(url, directory, filename=None):
 
     try:
         response = requests.get(url, stream=True, timeout=5)
-        if response.status_code == 200:
+        if response.status_code == 200 and response.headers['content-type'] == 'image/jpeg':
             with open(os.path.join(directory, filename), 'wb') as f:
                 response.raw.decode_content = True
                 shutil.copyfileobj(response.raw, f)
